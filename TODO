@@ -1,0 +1,11 @@
+Complete list of my dotfiles
+----------------------------
+.bashrc
+.bash_profile
+.myaliases
+.profile
+.screenrc
+.tmux.conf
+.vimrc
+.zshrc
+myconf/.ate_config.conf
