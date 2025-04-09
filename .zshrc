@@ -1,13 +1,15 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/mybin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# For NodeJS binaries (update PATH | 2017-12-02)
+export PATH=$PATH:/opt/nodejs/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/taflilou/.oh-my-zsh
+export ZSH=/home/atessilimi/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-export ZSH_THEME="candy" 
+export ZSH_THEME="robbyrussell" 
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -26,7 +28,7 @@ export ZSH_THEME="candy"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -51,7 +53,7 @@ export ZSH_THEME="candy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
+plugins=(git vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,8 +74,10 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# SSH Solving
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+# source /home/atessilimi/mygit/ssh-find-agent/ssh-find-agent.sh
+# set_ssh_agent_socket
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -87,5 +91,18 @@ source $ZSH/oh-my-zsh.sh
 # Add my aliases (@ATE)
 source $HOME/.myaliases
 
-# For now, add route to 192.168.10.0/24 network
-#/bin/bash /home/taflilou/myscripts/addroute.sh
+# Start tmux automatically
+# if [ "$TMUX" = "" ]; then tmux; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# for bundle and mise
+eval "$(~/.local/bin/mise activate)"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# add anaconda
+export PATH=$PATH:~/anaconda3/bin
