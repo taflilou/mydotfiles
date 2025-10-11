@@ -1,0 +1,44 @@
+
+# Basic aliases
+alias ls='ls --color=auto'
+alias ll='ls -alh --color=auto'
+alias lrt='ls -alrt --color=auto'
+alias lsfull='ls -alrt --full-time'
+
+# Moving into directories aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias cdd='cd ~/mydownloads'
+# alias ws="python3 "
+
+# Update aliases
+alias miseajour='sudo apt-get update && sudo apt-get -y upgrade'
+alias autoremove="sudo apt autoremove"
+
+# Search aliases
+alias grep='grep --color=auto'
+
+# History aliases
+alias h='history'
+
+# Path aliases
+alias path='echo -e ${PATH//:/\\n}'
+
+# Connectivity aliases
+alias ping='ping -c 5'
+alias fastping='ping -c 100 -s.2'
+
+# Network ports aliases
+alias ports='netstat -tulapn'
+alias tcp_ports="netstat -vatn"
+alias udp_ports="netstat -vaun"
+
+# Networking aliases
+alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d'B' -f 1 | cut -d':' -f 2'
+alias myexternalip='curl http://ifconfig.co'
+
+# Password aliases
+alias ineedpasswd="pwgen 15 1"

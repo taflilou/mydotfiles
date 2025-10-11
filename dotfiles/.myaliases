@@ -1,0 +1,18 @@
+# --------------------------------------------
+# `taflilou`'s aliases | last edit: 2025-10-11
+# --------------------------------------------
+
+# Source all common aliases
+[ -f $HOME/.mycommonaliases ] && source $HOME/.mycommonaliases
+
+# Source tech and devops aliases
+[ -f $HOME/.mydevopsaliases ] && source $HOME/.mydevopsaliases
+
+# Source all workspaces
+[ -f $HOME/.myworkspaces ] && source $HOME/.myworkspaces
+
+# Start tmux automatically
+# if [ "$TMUX" = "" ]; then tmux; fi
+
+# Source fzf for autocompletion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

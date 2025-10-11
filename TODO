@@ -1,11 +1,9 @@
-Complete list of my dotfiles
-----------------------------
-.bashrc
-.bash_profile
-.myaliases
-.profile
-.screenrc
-.tmux.conf
-.vimrc
-.zshrc
-myconf/.ate_config.conf
+
+1. Run Ansible to deploy all the packages needed
+ansible, python, zsh, oh-my-zsh, 
+
+2. Packages to install
+pwgen
+pip
+python environments
+pyenv

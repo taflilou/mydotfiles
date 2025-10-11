@@ -1,0 +1,39 @@
+- hosts: all
+  # become: yes
+  vars_files:
+    - include_vars.yml
+
+  tasks:
+  - name: Install zsh
+    ansible.builtin.package:
+      name: zsh
+      state: present
+    become: yes
+
+  - name: Download oh-my-zsh
+    ansible.builtin.get_url:
+      url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+      dest: "/home/{{ user }}/install.sh"
+      mode: 0755  
+
+  - name: Install oh-my-zsh
+    shell: | 
+      echo "Y Y " | ./install.sh && exit 0
+
+  - name: Copy all dotfiles
+    copy:
+      src: "{{ item }}"
+      dest: "/home/{{ user }}"
+    with_fileglob:
+      - "./dotfiles/.*"
+
+  - name: Set user shell to zsh
+    ansible.builtin.user:
+      name: "{{ user }}"
+      shell: /bin/zsh
+    become: yes  
+
+  - name: Replace oh-my-zsh robbyrussel theme
+    copy:
+      src: "./dotfiles/robbyrussell.zsh-theme"
+      dest: /home/{{ user }}/.oh-my-zsh/themes/

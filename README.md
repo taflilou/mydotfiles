@@ -1,12 +1,18 @@
 # mydotfiles
+`taflilou's` dotfiles in order to become quickly productive on Linux based VMs
 
-This repo consists of backups of my important dotfiles:
-- .zshrc
-- .vimrc
-- .tmux.conf
+## Infos
+- Implemented on a 
 
-## Installation
-For now, only copy of those files to `Home` directory
+## Objectives
+- Deploy mydotfiles in any Linux machine and make sure I have all my aliases and my basic linux environment
+- Make it simple ! Make sure I have the basics of what I need
+
+## Usage
+1. Make sure ansible is install
+2. Run command to start the playbook
+
+## Troubleshooting
 
 ## License
 Under [MIT](LICENSE)
