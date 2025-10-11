@@ -1,16 +1,10 @@
 # mydotfiles
-`taflilou's` dotfiles in order to become quickly productive on Linux based VMs
-
-## Infos
-- Implemented on a 
-
-## Objectives
-- Deploy mydotfiles in any Linux machine and make sure I have all my aliases and my basic linux environment
-- Make it simple ! Make sure I have the basics of what I need
+`taflilou's` dotfiles in order to become quickly productive on Linux based VMs (tested on rockylinux8)
 
 ## Usage
-1. Make sure ansible is install
-2. Run command to start the playbook
+1. Clone repository: `git clone git@github.com:taflilou/mydotfiles.git`
+2. Make sure current packages are installed: ansible (`yum -y install ansible`)
+3. Run ansible provisioning command: `ansible -i inventory playbook.yml`
 
 ## Troubleshooting
 
