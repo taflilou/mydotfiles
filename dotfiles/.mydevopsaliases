@@ -1,0 +1,15 @@
+# my pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# my anaconda
+export PATH=$PATH:~/anaconda3/bin
+
+# minikube
+# alias kubectl="minikube kubectl --"
+source <(kubectl completion zsh)
+# minikube autocompletion
+# autoload -Uz compinit
+# compinit
+

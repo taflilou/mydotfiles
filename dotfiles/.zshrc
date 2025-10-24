@@ -3,7 +3,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -54,6 +53,8 @@ DISABLE_AUTO_TITLE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git vagrant)
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -85,8 +86,9 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Start tmux automatically
-# if [ "$TMUX" = "" ]; then tmux; fi
-
-# Source `taflilou`'s aliases
+# `taflilou`'s aliases
 source $HOME/.myaliases
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

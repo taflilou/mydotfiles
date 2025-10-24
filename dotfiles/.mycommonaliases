@@ -1,9 +1,12 @@
 
+# Common aliases
+
 # Basic aliases
 alias ls='ls --color=auto'
 alias ll='ls -alh --color=auto'
 alias lrt='ls -alrt --color=auto'
 alias lsfull='ls -alrt --full-time'
+alias ws='cd ~/Desktop/myworkspace'
 
 # Moving into directories aliases
 alias ..='cd ..'
@@ -12,10 +15,12 @@ alias ....='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 alias cdd='cd ~/mydownloads'
-# alias ws="python3 "
+alias cdb='cd ~/mydownloads/browser'
+alias cdj='cd ~/mydownloads/jdowns'
+alias cdg='cd ~/mygit'
 
 # Update aliases
-alias miseajour='sudo apt-get update && sudo apt-get -y upgrade'
+alias miseajour='sudo apt-get update && sudo apt-get -y --allow-unauthenticated upgrade'
 alias autoremove="sudo apt autoremove"
 
 # Search aliases
@@ -26,6 +31,9 @@ alias h='history'
 
 # Path aliases
 alias path='echo -e ${PATH//:/\\n}'
+
+# Date aliases
+alias now='date +"%T"'
 
 # Connectivity aliases
 alias ping='ping -c 5'
@@ -40,5 +48,26 @@ alias udp_ports="netstat -vaun"
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d'B' -f 1 | cut -d':' -f 2'
 alias myexternalip='curl http://ifconfig.co'
 
+# User aliases
+alias root='sudo su'
+
 # Password aliases
 alias ineedpasswd="pwgen 15 1"
+
+# youtube-dl
+# alias ytdl="yt-dlp -x --audio-format mp3"
+
+func ytdl(){
+# print first, the url without the list part and then exec ytdl command
+playlistless_url=`echo "$1" | awk -F '&list' '{ print $1}'`
+yt-dlp -x --audio-format mp3 $playlistless_url
+if [ $? -eq 1 ]; then
+    formats=`yt-dlp -x --list-formats $playlistless_url 2>/dev/null | grep "audio only" | awk '{OFS="\n"; ORS=" "; print $1}'`
+    IFS=" "
+    for form in $formats; do
+        echo "yt-dlp -x --audio-format $form $playlistless_url"
+        yt-dlp -x --audio-format $form $playlistless_url 2>/dev/null
+        if [ $? -eq 1 ]; then break; fi
+    done
+fi
+}

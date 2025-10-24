@@ -1,7 +1,8 @@
-# --------------------------------------------
-# `taflilou`'s aliases | last edit: 2025-10-11
-# --------------------------------------------
-
+# +-------------------+
+# `taflilou`'s aliases
+# +-------------------+
+# edit: 2025-20-11 (last) 
+ 
 # Source all common aliases
 [ -f $HOME/.mycommonaliases ] && source $HOME/.mycommonaliases
 
@@ -16,3 +17,4 @@
 
 # Source fzf for autocompletion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
